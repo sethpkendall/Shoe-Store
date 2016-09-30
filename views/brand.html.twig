@@ -15,9 +15,9 @@
           <form action="/add_brand_store/{{brand.getId}}" method="post">
             <label for="store">Select a store by name from the list</label>
             <select name="store" class="form-control" id="store">
-                {% for store in stores %}
-                  <option value="{{store.getId}}">{{store.getName}}</option>
-                {% endfor %}
+              {% for store in stores %}
+                <option value="{{store.getId}}">{{store.getName}}</option>
+              {% endfor %}
             </select>
             <button class="btn btn-default" type="submit">Submit</button>
           </form>

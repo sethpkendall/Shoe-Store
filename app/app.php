@@ -110,6 +110,5 @@
         return $app->redirect("/stores");
     });
 
-
     return $app;
 ?>

@@ -1,5 +1,4 @@
 <?php
-
     class Store
     {
         private $name;
