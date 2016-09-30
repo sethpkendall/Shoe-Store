@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
+    <link rel="stylesheet" href="css/styles.css">
+    <meta charset="utf-8">
+    <title>Brands Home Page</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="page-title">Brands</h1>
+      <div class="row">
+        <div class="col-xs-1"></div>
+        <div class="col-xs-5 brands-column">
+          <h2 class="brands-column-header">Add A Brand</h2>
+          <form action="/new_brand" method="post">
+            <label for="b-name">What is the brand's name?</label>
+            <input id="b-name" class="form-control" type="text" name="b-name">
+            <label for="price_range">In which price range is this brand? (low, medium or high)</label>
+            <input id="price_range" class="form-control" type="text" name="price_range">
+            <br>
+            <button type="submit" class="btn btn-default">Submit</button>
+          </form>
+          <br>
+          <form action="/home" method="post">
+            <button class="home btn btn-default" type="submit"> Home </button>
+          </form>
+        </div>
+        <div class="col-xs-5 brands-column">
+          <h2 class="brands-column-header">All Brands</h2>
+          <h4>Click a brand for options</h4>
+            {% if brands is not empty %}
+              <ul>
+                {% for brand in brands %}
+                  <li class="no_bullet_list"><a href="/brand_page/{{brand.getId}}">{{brand.getName}}</a></li>
+                {% endfor %}
+              </ul>
+
+            {% endif %}
+        </div>
+        <div class="col-xs-1"></div>
+      </div>
+    </div>
+  </body>
+</html>

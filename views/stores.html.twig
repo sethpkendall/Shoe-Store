@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
+    <link rel="stylesheet" href="css/styles.css">
+    <meta charset="utf-8">
+    <title>Stores Home Page</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="page-title">Stores</h1>
+      <div class="row">
+        <div class="col-xs-1"></div>
+        <div class="col-xs-5 brands-column">
+          <h2 class="brands-column-header">Add A Store</h2>
+          <form action="/new_store" method="post">
+            <label for="s-name">What is the store's name?</label>
+            <input id="s-name" class="form-control" type="text" name="s-name">
+            <label for="phone">What is the phone number for this store?</label>
+            <input id="phone" class="form-control" type="text" name="phone">
+            <label for="address">What is the address for this store?</label>
+            <input id="address" class="form-control" type="text" name="address">
+            <br>
+            <button type="submit" class="btn btn-default">Submit</button>
+          </form>
+          <br>
+          <form action="/home" method="post">
+            <button class="home btn btn-default" type="submit"> Home </button>
+          </form>
+        </div>
+        <div class="col-xs-5 brands-column">
+          <h2 class="brands-column-header">All Stores</h2>
+          <h4>Click a store for options</h4>
+            {% if stores is not empty %}
+              <ul>
+                {% for store in stores %}
+                  <li class="no_bullet_list"><a href="/store_page/{{store.getId}}">{{store.getName}}</a></li>
+                {% endfor %}
+              </ul>
+
+            {% endif %}
+            <form action="/delete_all_stores" method="post">
+              <button class="btn btn-danger" type="submit" id="delete-all-button">Delete all stores</button>
+            </form>
+        </div>
+        <div class="col-xs-1"></div>
+      </div>
+    </div>
+  </body>
+</html>

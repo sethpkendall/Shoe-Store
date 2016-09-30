@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
+    <link rel="stylesheet" href="css/styles.css">
+    <title>{{brand.getName}} Home Page</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="page-title">{{brand.getName}}</h1>
+      <div class="row">
+        <div class="col-xs-1"></div>
+        <div class="col-xs-5 brands-column">
+          <h2 class="brands-column-header">Add a store now selling this brand</h2>
+          <form action="/add_brand_store/{{brand.getId}}" method="post">
+            <label for="store">Select a store by name from the list</label>
+            <select name="store" class="form-control" id="store">
+                {% for store in stores %}
+                  <option value="{{store.getId}}">{{store.getName}}</option>
+                {% endfor %}
+            </select>
+            <button class="btn btn-default" type="submit">Submit</button>
+          </form>
+          <form action="/home" method="post">
+            <button class="home btn btn-default" type="submit"> Home </button>
+          </form>
+        </div>
+        <div class="col-xs-5 brands-column">
+          <h2 class="brands-column-header">All stores selling this brand</h2>
+          {% if current_stores is not empty %}
+            <ul>
+              {% for store in current_stores %}
+                <li class="no_bullet_list">{{store.getName}}</li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        </div>
+        <div class="col-xs-1"></div>
+      </div>
+    </div>
+  </body>
+</html>

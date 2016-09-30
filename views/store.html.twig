@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
+    <link rel="stylesheet" href="css/styles.css">
+    <meta charset="utf-8">
+    <title>{{store.getName}} Home Page</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="page-title">{{store.getName}}</h1>
+      <div class="row">
+        <div class="col-xs-1"></div>
+        <div class="col-xs-5 brands-column">
+          <h2 class="brands-column-header">Add a brand now sold at this store</h2>
+          <form action="/add_store_brand/{{store.getId}}" method="post">
+            <label for="brand">Select a brand by name from the list</label>
+            <select name="brand" class="form-control" id="brand">
+              {% if brands is not empty %}
+                {% for brand in brands %}
+                  <option value="{{brand.getId}}">{{brand.getName}}</option>
+                {% endfor %}
+              {% endif %}
+            </select>
+            <button class="btn btn-default" type="submit">Submit</button>
+          </form>
+          <h2 class="brands-column-header">Update details of this store</h2>
+          <form action="/update_store_name/{{store.getId}}" method="post">
+            <label for="edit_name">Updating name?</label>
+            <input id="edit_name" type="text" class="form-control" placeholder="What is the new name?" name="name">
+            <br>
+            <button type="submit" class="btn btn-default">Submit</button>
+          </form>
+          <br>
+          <form action="/update_store_phone/{{store.getId}}" method="post">
+            <label for="edit_phone">Updating phone?</label>
+            <input id="edit_phone" type="text" class="form-control" placeholder="What is the new phone?" name="phone">
+            <br>
+            <button type="submit" class="btn btn-default">Submit</button>
+          </form>
+          <br>
+          <form action="/update_store_address/{{store.getId}}" method="post">
+            <label for="edit_address">Updating address?</label>
+            <input id="edit_address" type="text" class="form-control" placeholder="What is the new address?" name="address">
+            <br>
+            <button type="submit" class="btn btn-default">Submit</button>
+          </form>
+          <br>
+          <form action="/delete_store/{{store.getId}}" method="post">
+            <button class="btn btn-danger" type="submit">Delete this store</button>
+          </form>
+          <br>
+          <form action="/home" method="post">
+            <button class="home btn btn-default" type="submit"> Home </button>
+          </form>
+        </div>
+        <div class="col-xs-5 brands-column">
+          <h2>Store details:</h2>
+          <h5>Phone Number: {{store.getPhone}}</h5>
+          <h5>Location: {{store.getAddress}}</h5>
+          <h2 class="brands-column-header">All brands currently in stock at this store</h2>
+          {% if current_brands is not empty %}
+            <ul>
+              {% for brand in current_brands %}
+                <li class="no_bullet_list">{{brand.getName}}</li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        </div>
+        <div class="col-xs-1"></div>
+      </div>
+    </div>
+  </body>
+</html>
