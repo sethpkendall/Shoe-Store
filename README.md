@@ -13,7 +13,8 @@ _This program is designed to manage the distribution of shoe brands through reta
 |--------|:---:|-----:|
 |The program will accept and save different store information. It can display all the stores that it has saved.|"Foot Locker", "888-888-8888", "123 Way Ave. Portland, OR"|[Adds store to list]|
 |It will accept and save different brand information. It can display all the brands that it has saved.|"Nike", "Bourgeois-end Shows"|[Adds brand to list]|
-|The program will link brands to stores and stores to brands so that the user can view the brands sold at a particular store and the stores at which a brand is sold.|"Nike"|[List of outlets for Nike shoes.]|
+|It will link brands to stores and stores to brands so that the user can view the brands sold at a particular store and the stores at which a brand is sold.|"Nike"|[List of outlets for Nike shoes.]|
+|It will take update information about the stores that are saved in the program.|New store address: 456 Way Ave. Portland, OR 97204|[Updates store information displayed on page]|
 
 ## Setup Instructions
 
@@ -29,24 +30,16 @@ _This program is designed to manage the distribution of shoe brands through reta
 * _Navigate to localhost:8000 in browser window._
 
 ## Database Commands
-* _Hair_salon_test commands executed:_
-  * _create database hair_salon;_
-  * _use hair_salon;_
-  * _create table stylists (name VARCHAR (255), id serial PRIMARY KEY);_
-  * _create table clients (name VARCHAR (255), stylist_id INT, id serial PRIMARY KEY);_
-* _Hair_salon commands executed:_
-  * _insert into stylists (name) values ('John');_
-  * _insert into stylists (name) values ('Mary');_
-  * _insert into stylists (name) values ('Gena');_
-  * _insert into clients (name, stylist_id) values ('Gary', 1);_
-  * _insert into clients (name, stylist_id) values ('Mandy', 1);_
-  * _insert into clients (name, stylist_id) values ('Jacob', 1);_
-  * _insert into clients (name, stylist_id) values ('Molly', 2);_
-  * _insert into clients (name, stylist_id) values ('Curtis', 2);_
-  * _insert into clients (name, stylist_id) values ('Bill', 2);_
-  * _insert into clients (name, stylist_id) values ('Carol', 3);_
-  * _insert into clients (name, stylist_id) values ('Cassie', 3);_
-  * _insert into clients (name, stylist_id) values ('Dan', 3);_
+* _Create database shoes;_
+* _Use shoes;_
+* _Create table brands (name VARCHAR (255), price_range VARCHAR (255), id serial PRIMARY KEY);_
+* _Create table stores (name VARCHAR (255), phone VARCHAR (255), address VARCHAR (255), id serial primary key);_
+* _Insert into stores (name, phone, address) values ("Foot Locker", "888-888-8888", "123 Way Ave. Portland, OR 97204");_
+* _Insert into stores (name, phone, address) values ("Getcha Shoes Heah!", "999-999-9999", "456 Way Ave. Portland, OR 97204");_
+* _Insert into stores (name, phone, address) values ("Dick's Sporting Goods", "777-777-7777", "789 Way Ave. Portland, OR 97204");_
+* _Insert into brands (name, price_range) values ("Nike", "Medium");_
+* _Insert into brands (name, price_range) values ("Keds", "Low");_
+* _Insert into brands (name, price_range) values ("Louis Vuitton", "High");_
 
 
 ## Licensing
