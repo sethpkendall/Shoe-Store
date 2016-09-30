@@ -45,7 +45,8 @@
 
             //Act
             $new_id = 2;
-            $result = $test_brand->setId($new_id);
+            $test_brand->setId($new_id);
+            $result = $test_brand->getId();
 
             //Assert
             $this->assertEquals($new_id, $result);
