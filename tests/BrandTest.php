@@ -130,7 +130,7 @@
             $this->assertEquals([$test_store], $result);
         }
 
-        function test_addStore()
+        function test_getStores()
         {
             //Arrange
             $name = "Nike";
