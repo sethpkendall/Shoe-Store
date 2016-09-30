@@ -1,0 +1,43 @@
+body{
+  /*background-color: #ef9234;*/
+  background-color: #1368d8;
+}
+a{
+  text-decoration: none;
+  color: #fff;
+}
+a:hover{
+  text-decoration: none;
+  color: #ffa74f;
+}
+.page-title{
+  text-align: center;
+  color: #ffa74f;
+}
+.main-page-button{
+  margin-top: 9%;
+  margin-left: 12%;
+}
+.home-column{
+  padding-top: 10%;
+}
+.brands-column{
+  padding-top: 5%;
+  text-align: center;
+  color: #fff;
+}
+.brands-column-header{
+  color: #ffa74f;
+}
+.no_bullet_list {
+  list-style-type: none;
+  margin-right: 35px;
+}
+.home {
+  margin-top: 25%;
+  float: left;
+}
+#delete-all-button{
+  /*float: left;*/
+  margin-top: 10%;
+}
