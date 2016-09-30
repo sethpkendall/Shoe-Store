@@ -23,14 +23,14 @@
             return $this->name;
         }
 
-        function setPriceRange($new_range)
+        function setPriceRange($new_price_range)
         {
-            $this->range = (string) $new_range;
+            $this->price_range = (string) $new_price_range;
         }
 
         function getPriceRange()
         {
-            return $this->range;
+            return $this->price_range;
         }
 
         function setId($new_id)
@@ -46,6 +46,26 @@
         function save()
         {
           $GLOBALS['DB']->exec("INSERT INTO brands (name, price_range) VALUES ('{$this->getName()}', '{$this->getPriceRange()}');");
+          $this->id = $GLOBALS['DB']->lastInsertId();
+        }
+
+        static function getAll()
+        {
+            $returned_brands = $GLOBALS['DB']->query("SELECT * FROM brands;");
+            $brands = array();
+            foreach($returned_brands as $brand) {
+                $name = $brand['name'];
+                $price_range = $brand['price_range'];
+                $id = $brand['id'];
+                $new_brand = new Brand($name, $price_range, $id);
+                array_push($brands, $new_brand);
+            }
+            return $brands;
+        }
+        static function deleteAll()
+        {
+            $GLOBALS['DB']->exec("DELETE FROM brands;");
+            // $GLOBALS['DB']->exec("DELETE FROM brands_stores");
         }
     }
 ?>
