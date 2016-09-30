@@ -67,7 +67,7 @@
               $address = $store['address'];
               $id = $store['id'];
               $new_store = new Store($name, $phone, $address, $id);
-              array_push($stores,$new_store);
+              array_push($stores, $new_store);
             }
             return $stores;
         }
