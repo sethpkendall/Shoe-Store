@@ -1,38 +1,38 @@
 <?php
-    // /**
-    // * @backupGlobals disabled
-    // * @backupStaticAttributes disabled
-    // */
-    //
-    // require_once "src/Brand.php";
-    // require_once "src/Store.php";
-    //
-    // $server = 'mysql:host=localhost;dbname=shoes_test';
-    // $username = 'root';
-    // $password = 'root';
-    // $DB = new PDO($server, $username, $password);
-    //
-    // class StoreTest extends PHPUnit_Framework_TestCase
-    // {
-    //     protected function tearDown()
-    //     {
-    //         // Store::deleteAll();
-    //         // Brand::deleteAll();
-    //     }
-    //
-    //     function test_getBrandName()
-    //     {
-    //         //Arrange
-    //         $name = "Nike";
-    //         $price_range = "Medium";
-    //         $id = 1;
-    //         $test_brand = new Brand($name, $price_range, $id);
-    //
-    //         //Act
-    //         $result = $test_brand->getName();
-    //
-    //         //Assert
-    //         $this->assertEquals($name, $result);
-    //     }
-    // }
+    /**
+    * @backupGlobals disabled
+    * @backupStaticAttributes disabled
+    */
+
+    require_once "src/Brand.php";
+    require_once "src/Store.php";
+
+    $server = 'mysql:host=localhost;dbname=shoes_test';
+    $username = 'root';
+    $password = 'root';
+    $DB = new PDO($server, $username, $password);
+
+    class StoreTest extends PHPUnit_Framework_TestCase
+    {
+        protected function tearDown()
+        {
+            // Store::deleteAll();
+            // Brand::deleteAll();
+        }
+
+        function test_getName()
+        {
+            //Arrange
+            $name = "Foot Locker";
+            $phone = "888-888-8888";
+            $address = "123 Way Ave. Portland, OR 97204";
+            $test_store = new Store($name, $phone, $address);
+
+            //Act
+            $result = $test_store->getName();
+
+            //Assert
+            $this->assertEquals($name, $result);
+        }
+    }
 ?>

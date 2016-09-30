@@ -49,6 +49,11 @@
           $this->id = $GLOBALS['DB']->lastInsertId();
         }
 
+        // function addStore($new_store)
+        // {
+        //
+        // }
+
         static function getAll()
         {
             $returned_brands = $GLOBALS['DB']->query("SELECT * FROM brands;");
