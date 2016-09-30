@@ -1,6 +1,6 @@
 <?php
 
-    class Animal
+    class Brand
     {
         private $name;
         private $price_range;

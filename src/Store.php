@@ -1,8 +1,10 @@
 <?php
 
-    class Animal
+    class Store
     {
         private $name;
+        private $phone;
+        private $address
         private $id;
 
         function __construct($name, $id=null)
@@ -19,16 +21,6 @@
         function getName()
         {
             return $this->name;
-        }
-
-        function setPriceRange($new_range)
-        {
-            $this->range = (string) $new_range;
-        }
-
-        function getPriceRange()
-        {
-            return $this->range;
         }
 
         function setId($new_id)
