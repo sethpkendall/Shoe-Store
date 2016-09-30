@@ -143,21 +143,21 @@
           $this->assertEquals($new_phone, $result);
         }
 
-        // function test_updateAddress()
-        // {
-        //   //Arrange
-        //   $name = "Foot Locker";
-        //   $phone = "888-888-8888";
-        //   $address = "123 Way Ave. Portland, OR 97204";
-        //   $test_store = new Store($name, $phone, $address);
-        //   $test_store->save();
-        //   //Act
-        //   $new_name = "Getcha Shoes Heah!";
-        //   $test_store->updateName($new_name);
-        //   $result = $test_store->getName();
-        //   //Assert
-        //   $this->assertEquals($new_name, $result);
-        // }
+        function test_updateAddress()
+        {
+          //Arrange
+          $name = "Foot Locker";
+          $phone = "888-888-8888";
+          $address = "123 Way Ave. Portland, OR 97204";
+          $test_store = new Store($name, $phone, $address);
+          $test_store->save();
+          //Act
+          $new_address = "124 Way Ave. Portland, OR 97204";
+          $test_store->updateAddress($new_address);
+          $result = $test_store->getAddress();
+          //Assert
+          $this->assertEquals($new_address, $result);
+        }
 
         function test_storeFind()
         {

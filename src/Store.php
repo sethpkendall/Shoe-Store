@@ -79,6 +79,12 @@
             $this->setPhone($new_phone);
         }
 
+        function updateAddress($new_address)
+        {
+            $GLOBALS['DB']->exec("UPDATE stores SET address = '{$new_address}' WHERE id = {$this->getId()};");
+            $this->setPhone($new_address);
+        }
+
         function addBrand($new_brand)
         {
             $GLOBALS['DB']->exec("INSERT INTO brands_stores (brand_id, store_id) VALUES ({$new_brand->getId()}, {$this->getId()});");
