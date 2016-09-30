@@ -55,9 +55,25 @@
             return $this->id;
         }
 
-        // function save()
-        // {
-        //
-        // }
+        function save()
+        {
+          $GLOBALS['DB']->exec("INSERT INTO stores (name, phone, address) VALUES ('{$this->getName()}', '{$this->getPhone()}', '{$this->getAddress()}');");
+          $this->id = $GLOBALS['DB']->lastInsertId();
+        }
+
+        static function getAll()
+        {
+            $returned_stores = $GLOBALS['DB']->query("SELECT * FROM stores;");
+            $stores = array();
+            foreach($returned_stores as $store) {
+                $name = $store['name'];
+                $phone = $store['phone'];
+                $address = $store['address'];
+                $id = $store['id'];
+                $new_store = new Store($name, $phone, $address, $id);
+                array_push($stores, $new_store);
+            }
+            return $stores;
+        }
     }
 ?>

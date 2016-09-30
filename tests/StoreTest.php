@@ -52,7 +52,7 @@
             $this->assertEquals($new_phone, $result);
         }
 
-        function test_save()
+        function test_storeSave()
         {
           //Arrange
           $name = "Foot Locker";
