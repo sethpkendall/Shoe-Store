@@ -82,7 +82,7 @@
         function updateAddress($new_address)
         {
             $GLOBALS['DB']->exec("UPDATE stores SET address = '{$new_address}' WHERE id = {$this->getId()};");
-            $this->setPhone($new_address);
+            $this->setAddress($new_address);
         }
 
         function addBrand($new_brand)
