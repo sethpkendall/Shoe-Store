@@ -66,5 +66,25 @@
           //Assert
           $this->assertEquals([$test_brand], $result);
         }
+
+        function test_getAll()
+        {
+            //Arrange
+            $name = "Nike";
+            $price_range = "Medium";
+            $test_brand = new Brand($name, $price_range);
+
+            $name2 = "Adidas";
+            $price_range2 = "Medium";
+            $test_brand2 = new Brand($name2, $price_range2);
+
+            //Act
+            $test_brand->save();
+            $test_brand2->save();
+            $result = Brand::getAll();
+
+            //Assert
+            $this->assertEquals([$test_brand, $test_brand2], $result);
+        }
     }
 ?>
