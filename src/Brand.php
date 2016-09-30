@@ -42,5 +42,10 @@
         {
             return $this->id;
         }
+
+        function save()
+        {
+          $GLOBALS['DB']->exec("INSERT INTO brands (name, price_range) VALUES ('{$this->getName()}', '{$this->getPriceRange()}');");
+        }
     }
 ?>
