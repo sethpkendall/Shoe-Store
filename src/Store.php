@@ -75,5 +75,11 @@
             }
             return $stores;
         }
+
+        static function deleteAll()
+        {
+            $GLOBALS['DB']->exec("DELETE FROM stores;");
+            // $GLOBALS['DB']->exec("DELETE FROM brands_stores");
+        }
     }
 ?>
