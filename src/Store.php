@@ -69,8 +69,14 @@
 
         function updateName($new_name)
         {
-            $GLOVALS['DB']->exec("UPDATE stores SET name = '{$new_name}' WHERE id = {$this->getId()};");
+            $GLOBALS['DB']->exec("UPDATE stores SET name = '{$new_name}' WHERE id = {$this->getId()};");
+            $this->setName($new_name);
         }
+
+        // function updatePhone($new_name)
+        // {
+        //     $GLOVALS['DB']->exec("UPDATE stores SET name = '{$new_name}' WHERE id = {$this->getId()};");
+        // }
 
         function addBrand($new_brand)
         {

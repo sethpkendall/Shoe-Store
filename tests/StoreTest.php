@@ -119,12 +119,12 @@
           $address = "123 Way Ave. Portland, OR 97204";
           $test_store = new Store($name, $phone, $address);
           $test_store->save();
-           //Act
-           $new_name = "Getcha Shoes Heah!"
-           $test_store->update($new_name);
-           $result = $test_store->getName();
-           //Assert
-           $this->assertEquals($new_name, $result);
+          //Act
+          $new_name = "Getcha Shoes Heah!";
+          $test_store->updateName($new_name);
+          $result = $test_store->getName();
+          //Assert
+          $this->assertEquals($new_name, $result);
         }
 
         function test_storeFind()
