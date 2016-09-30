@@ -130,5 +130,5 @@
     //         //Assert
     //         $this->assertEquals($test_brand, $result);
     //     }
-    // }
+    }
 ?>

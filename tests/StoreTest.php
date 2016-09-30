@@ -34,5 +34,22 @@
             //Assert
             $this->assertEquals($name, $result);
         }
+
+        function test_getName()
+        {
+            //Arrange
+            $name = "Foot Locker";
+            $phone = "888-888-8888";
+            $address = "123 Way Ave. Portland, OR 97204";
+            $test_store = new Store($name, $phone, $address);
+
+            //Act
+            $new_phone = "777-777-7777";
+            $test_store->setPhone($new_phone);
+            $result = $test_store->getPhone;()
+
+            //Assert
+            $this->assertEquals($new_phone, $result);
+        }
     }
 ?>
