@@ -82,6 +82,6 @@
             // $GLOBALS['DB']->exec("DELETE FROM brands_stores");
         }
 
-        static
+        // static
     }
 ?>

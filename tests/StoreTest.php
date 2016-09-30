@@ -16,7 +16,7 @@
     {
         protected function tearDown()
         {
-            // Store::deleteAll();
+            Store::deleteAll();
             // Brand::deleteAll();
         }
 
@@ -68,7 +68,7 @@
           $this->assertEquals([$test_store], $result);
         }
 
-        function test_getAll()
+        function test_storeGetAll()
         {
             //Arrange
             $name = "Foot Locker";
@@ -88,6 +88,29 @@
 
             //Assert
             $this->assertEquals([$test_store, $test_store2], $result);
+        }
+
+        function test_storeFind()
+        {
+            //Arrange
+            $name = "Foot Locker";
+            $phone = "888-888-8888";
+            $address = "123 Way Ave. Portland, OR 97204";
+            $test_store = new Store($name, $phone, $address);
+            $test_store->save();
+
+            $name2 = "Getcha Shoes Heah!";
+            $phone2 = "888-888-8887";
+            $address2 = "124 Way Ave. Portland, OR 97204";
+            $test_store2 = new Store($name2, $phone2, $address2);
+            $test_store2->save();
+
+            //Act
+            $id = $test_store->getId();
+            $result = Store::find($id);
+
+            //Assert
+            $this->assertEquals($test_store, $result);
         }
     }
 ?>
