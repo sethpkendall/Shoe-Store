@@ -4,7 +4,7 @@
     {
         private $name;
         private $phone;
-        private $address
+        private $address;
         private $id;
 
         function __construct($name, $id=null)

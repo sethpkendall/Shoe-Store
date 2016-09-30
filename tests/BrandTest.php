@@ -12,12 +12,12 @@
     $password = 'root';
     $DB = new PDO($server, $username, $password);
 
-    class CourseTest extends PHPUnit_Framework_TestCase
+    class BrandTest extends PHPUnit_Framework_TestCase
     {
         protected function tearDown()
         {
-            Course::deleteAll();
-            Student::deleteAll();
+            // Brand::deleteAll();
+            // Store::deleteAll();
         }
 
         function test_getBrandName()
@@ -34,4 +34,5 @@
             //Assert
             $this->assertEquals($name, $result);
         }
+    }
 ?>
