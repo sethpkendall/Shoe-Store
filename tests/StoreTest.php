@@ -137,7 +137,7 @@
           $test_store->save();
           //Act
           $new_phone = "777-777-7777";
-          $test_store->updateName($new_phone);
+          $test_store->updatePhone($new_phone);
           $result = $test_store->getPhone();
           //Assert
           $this->assertEquals($new_phone, $result);
