@@ -129,5 +129,34 @@
             //Assert
             $this->assertEquals([$test_store], $result);
         }
+
+        function test_addStore()
+        {
+            //Arrange
+            $name = "Nike";
+            $price_range = "Medium";
+            $test_brand = new Brand($name, $price_range);
+            $test_brand->save();
+
+            $name = "Foot Locker";
+            $phone = "888-888-8888";
+            $address = "123 Way Ave. Portland, OR 97204";
+            $test_store = new Store($name, $phone, $address);
+            $test_store->save();
+
+            $name2 = "Getcha Shoes Heah!";
+            $phone2 = "888-888-8887";
+            $address2 = "124 Way Ave. Portland, OR 97204";
+            $test_store2 = new Store($name2, $phone2, $address2);
+            $test_store2->save();
+
+            //Act
+            $test_brand->addStore($test_store);
+            $test_brand->addStore($test_store2);
+            $result = $test_brand->getStores();
+
+            //Assert
+            $this->assertEquals([$test_store, $test_store2], $result);
+        }
     }
 ?>
