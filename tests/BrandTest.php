@@ -108,27 +108,26 @@
             $this->assertEquals($test_brand, $result);
         }
 
-    //     function test_addStore()
-    //     {
-    //         //Arrange
-    //         $name = "Nike";
-    //         $price_range = "Medium";
-    //         $test_brand = new Brand($name, $price_range);
-    //         $test_brand->save();
-    //
-    //         $name = "Foot Locker";
-    //         $phone = "888-888-8888";
-    //         $address = "123 Way Ave. Portland, OR 97204";
-    //         $test_store = new Store($name, $phone, $address);
-    //         $test_store->save();
-    //
-    //         //Act
-    //         $test_brand->addStore($test_store);
-    //         $test_brand->getStores();
-    //         $result = Brand::find($id);
-    //
-    //         //Assert
-    //         $this->assertEquals($test_brand, $result);
-    //     }
+        function test_addStore()
+        {
+            //Arrange
+            $name = "Nike";
+            $price_range = "Medium";
+            $test_brand = new Brand($name, $price_range);
+            $test_brand->save();
+
+            $name = "Foot Locker";
+            $phone = "888-888-8888";
+            $address = "123 Way Ave. Portland, OR 97204";
+            $test_store = new Store($name, $phone, $address);
+            $test_store->save();
+
+            //Act
+            $test_brand->addStore($test_store);
+            $result = $test_brand->getStores();
+
+            //Assert
+            $this->assertEquals([$test_store], $result);
+        }
     }
 ?>
