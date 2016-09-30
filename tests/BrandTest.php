@@ -16,7 +16,7 @@
     {
         protected function tearDown()
         {
-            // Brand::deleteAll();
+            Brand::deleteAll();
             // Store::deleteAll();
         }
 
@@ -85,6 +85,27 @@
 
             //Assert
             $this->assertEquals([$test_brand, $test_brand2], $result);
+        }
+
+        function test_find()
+        {
+            //Arrange
+            $name = "Nike";
+            $price_range = "Medium";
+            $test_brand = new Brand($name, $price_range);
+            $test_brand->save();
+
+            $name2 = "Adidas";
+            $price_range2 = "Medium";
+            $test_brand2 = new Brand($name2, $price_range2);
+            $test_brand2->save();
+
+            //Act
+            $id = $test_brand->getId();
+            $result = Brand::find($id)
+
+            //Assert
+            $this->assertEquals($test_brand, $result);
         }
     }
 ?>
