@@ -102,7 +102,7 @@
 
             //Act
             $id = $test_brand->getId();
-            $result = Brand::find($id)
+            $result = Brand::find($id);
 
             //Assert
             $this->assertEquals($test_brand, $result);
